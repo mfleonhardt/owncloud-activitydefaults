@@ -42,25 +42,39 @@ script ( 'activitydefaults', 'settings-admin' );
 		</tbody>
 		</table>
 
-		<br /> <input id="notify_setting_self" name="notify_setting_self"
-			type="checkbox" value="1" <?php if ($_['notify_self']): ?>
-			checked="checked" <?php endif; ?> /> <label for="notify_setting_self"><?php p($l->t('List user\'s own actions in their stream')); ?></label>
-		<br /> <input id="notify_setting_selfemail"
-			name="notify_setting_selfemail" type="checkbox" value="1"
-			<?php if ($_['notify_selfemail']): ?> checked="checked"
-			<?php endif; ?> /> <label for="notify_setting_selfemail"><?php p($l->t('Notify about user\'s own actions via email')); ?></label>
-		<br /> <br />
-	<?php p($l->t('Send emails:')); ?>
-	<select id="notify_setting_batchtime" name="notify_setting_batchtime">
+		<br/>
+		<input id="notify_setting_self" name="notify_setting_self" type="checkbox" class="checkbox" value="1"
+            <?php if ($_['notify_self']): ?> checked="checked"<?php endif; ?> />
+		<label for="notify_setting_self"><?php p($l->t('List your own actions in the stream')); ?></label>
+		<br/>
+
+		<input id="notify_setting_selfemail" name="notify_setting_selfemail" type="checkbox" class="checkbox" value="1"
+            <?php if ($_['notify_selfemail']): ?> checked="checked"<?php endif; ?> />
+		<label for="notify_setting_selfemail"><?php p($l->t('Notify about your own actions via email')); ?></label>
+		<br/>
+
+		<br/>
+		<strong><?php p($l->t('You need to set up your email address before you can receive notification emails.')); ?></strong>
+
+		<br/>
+
+		<label for="notify_setting_batchtime"><?php p($l->t('Send emails:')); ?></label>
+		<select id="notify_setting_batchtime" name="notify_setting_batchtime">
+			<option value="3"
+                <?php if ($_['setting_batchtime'] === \OCA\Activity\UserSettings::EMAIL_SEND_ASAP): ?>
+					selected="selected"<?php endif; ?>><?php p($l->t('As soon as possible')); ?></option>
+
 			<option value="0"
-				<?php if ($_['setting_batchtime'] === \OCA\Activity\UserSettings::EMAIL_SEND_HOURLY): ?>
-				selected="selected" <?php endif; ?>><?php p($l->t('Hourly')); ?></option>
+                <?php if ($_['setting_batchtime'] === \OCA\Activity\UserSettings::EMAIL_SEND_HOURLY): ?>
+					selected="selected"<?php endif; ?>><?php p($l->t('Hourly')); ?></option>
+
 			<option value="1"
-				<?php if ($_['setting_batchtime'] === \OCA\Activity\UserSettings::EMAIL_SEND_DAILY): ?>
-				selected="selected" <?php endif; ?>><?php p($l->t('Daily')); ?></option>
+                <?php if ($_['setting_batchtime'] === \OCA\Activity\UserSettings::EMAIL_SEND_DAILY): ?>
+					selected="selected"<?php endif; ?>><?php p($l->t('Daily')); ?></option>
+
 			<option value="2"
-				<?php if ($_['setting_batchtime'] === \OCA\Activity\UserSettings::EMAIL_SEND_WEEKLY): ?>
-				selected="selected" <?php endif; ?>><?php p($l->t('Weekly')); ?></option>
+                <?php if ($_['setting_batchtime'] === \OCA\Activity\UserSettings::EMAIL_SEND_WEEKLY): ?>
+					selected="selected"<?php endif; ?>><?php p($l->t('Weekly')); ?></option>
 		</select>
 	</form>
 </div>

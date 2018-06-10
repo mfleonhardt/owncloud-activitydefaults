@@ -39,6 +39,8 @@ class AppSettings
     /** @var IConfig */
     protected $config;
 
+    const EMAIL_SEND_ASAP = 3;
+
     const EMAIL_SEND_HOURLY = 0;
 
     const EMAIL_SEND_DAILY = 1;

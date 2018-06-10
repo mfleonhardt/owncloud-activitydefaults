@@ -18,6 +18,7 @@ use OCA\Activity\UserSettings;
 
 abstract class TestCase extends \Test\TestCase {
 
+	const ASAP = 0;
 	const HOURLY = 3600;
 	const DAILY = 3600 * 24;
 	const WEEKLY = 3600 * 24 * 7;
@@ -34,6 +35,7 @@ abstract class TestCase extends \Test\TestCase {
 
 	protected function setUp() {
 		$this->batchtimes = array(
+			self::ASAP => UserSettings::EMAIL_SEND_ASAP,
 			self::HOURLY => UserSettings::EMAIL_SEND_HOURLY,
 			self::DAILY => UserSettings::EMAIL_SEND_DAILY,
 			self::WEEKLY => UserSettings::EMAIL_SEND_WEEKLY
