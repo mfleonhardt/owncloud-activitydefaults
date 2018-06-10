@@ -21,7 +21,10 @@ namespace OCA\ActivityDefaults\AppInfo;
 
 //\OCP\Util::logException('activitydefaults', new \Exception(\OCP\Util::getRequestUri()));
 
-$application = new Application();
-$application->registerRoutes($this, ['routes' => [
-	['name' => 'Settings#admin', 'url' => '/settings-admin', 'verb' => 'POST'],
-]]);
+return ['routes' => [
+    [
+        'name' => 'Settings#admin',
+        'url' => '/settings-admin',
+        'verb' => 'POST',
+    ],
+]];

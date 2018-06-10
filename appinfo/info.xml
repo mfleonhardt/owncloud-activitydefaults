@@ -5,11 +5,10 @@
     <description>Administration utility to allow customizable defaults for activity notifications for new users.</description>
     <licence>AGPL</licence>
     <author>Matt Leonhardt</author>
-    <version>0.1.0</version>
+    <version>0.1.1</version>
     <namespace>ActivityDefaults</namespace>
     <category>other</category>
     <dependencies>
-        <owncloud min-version="8.2" max-version="9.1"/>
-        <nextcloud min-version="9.0" max-version="11.0"/>
+        <nextcloud min-version="13" max-version="13"/>
     </dependencies>
 </info>

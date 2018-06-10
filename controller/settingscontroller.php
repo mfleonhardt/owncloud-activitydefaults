@@ -101,6 +101,8 @@ class SettingsController extends Controller
             $email_batch_time = 3600 * 24;
         } elseif ($notify_setting_batchtime === UserSettings::EMAIL_SEND_WEEKLY) {
             $email_batch_time = 3600 * 24 * 7;
+        } else if ($notify_setting_batchtime === UserSettings::EMAIL_SEND_ASAP) {
+            $email_batch_time = 0;
         }
 
         $this->config->setAppValue($this->appName, 'notify_setting_batchtime', $email_batch_time);
@@ -159,6 +161,8 @@ class SettingsController extends Controller
             $settingBatchTime = UserSettings::EMAIL_SEND_WEEKLY;
         } elseif ($currentSetting === 3600 * 24) {
             $settingBatchTime = UserSettings::EMAIL_SEND_DAILY;
+        } else if ($currentSetting === 0) {
+            $settingBatchTime = UserSettings::EMAIL_SEND_ASAP;
         }
 
         return new TemplateResponse($this->appName, 'settings-admin', array(
